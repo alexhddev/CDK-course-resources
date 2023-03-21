@@ -6,6 +6,7 @@ import { CfnOutput, Fn } from "aws-cdk-lib";
 export class PhotosStack extends cdk.Stack {
 
     private stackSuffix: string;
+    public readonly photosBucketArn: string;
 
     constructor(scope: Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
@@ -15,11 +16,7 @@ export class PhotosStack extends cdk.Stack {
         const photosBucket = new Bucket(this, 'PhotosBucket2', {
             bucketName: `photos-bucket-${this.stackSuffix}`
         });
-
-        new CfnOutput(this, 'photos-bucket', {
-            value:photosBucket.bucketArn,
-            exportName: 'photos-bucket'
-        })
+        this.photosBucketArn = photosBucket.bucketArn;
     }
 
     private initializeSuffix(){
