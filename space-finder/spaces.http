@@ -4,4 +4,9 @@ GET https://1ertg407z7.execute-api.eu-west-1.amazonaws.com/prod/spaces
 ###
 
 POST https://1ertg407z7.execute-api.eu-west-1.amazonaws.com/prod/spaces
+content-type: application/json
+
+ {
+    "location": "Paris"
+ }
 ###
