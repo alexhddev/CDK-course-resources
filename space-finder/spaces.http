@@ -10,3 +10,6 @@ content-type: application/json
     "location": "Paris"
  }
 ###
+
+GET https://1ertg407z7.execute-api.eu-west-1.amazonaws.com/prod/spaces?id=343345
+###
