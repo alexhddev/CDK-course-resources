@@ -7,7 +7,7 @@ async function testAuth(){
         'barosanu',
         'sdf45aAf574fg)'
     )
-    console.log(loginResult);
+    console.log(loginResult.getSignInUserSession().getIdToken().getJwtToken());
 }
 
 testAuth();
