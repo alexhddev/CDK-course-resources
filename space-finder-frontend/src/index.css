@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, system-ui, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -14,9 +14,14 @@
   -webkit-text-size-adjust: 100%;
 }
 
+.wrapper {
+  margin: auto;
+  width: 70%;
+}
+
 a {
   font-weight: 500;
-  color: #646cff;
+  color: rgb(43, 159, 226);
   text-decoration: inherit;
 }
 a:hover {
@@ -25,10 +30,7 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -39,7 +41,6 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -66,4 +67,31 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+/* Add a black background color to the top navigation */
+.navbar {
+  overflow: hidden;
+  background-color: #564949de;
+}
+
+/* Style the links inside the navigation bar */
+.navbar a {
+  float: left;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.navbar a.active {
+  background-color: #8f959c;
+  color: white;
 }
