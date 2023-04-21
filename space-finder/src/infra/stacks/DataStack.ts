@@ -1,8 +1,8 @@
 import { CfnOutput, Stack, StackProps } from 'aws-cdk-lib'
 import { AttributeType, ITable, Table } from 'aws-cdk-lib/aws-dynamodb';
-import { Construct } from 'constructs';
 import { getSuffixFromStack } from '../Utils';
 import { Bucket, HttpMethods, IBucket } from 'aws-cdk-lib/aws-s3';
+import { Construct } from 'constructs';
 
 
 export class DataStack extends Stack {
@@ -18,7 +18,6 @@ export class DataStack extends Stack {
 
         this.deploymentBucket = new Bucket(this, 'SpaceFinderFrontend', {
             bucketName: `space-finder-frontend-${suffix}`,
-            publicReadAccess: true,
             websiteIndexDocument: 'index.html'
         })
         this.photosBucket = new Bucket(this, 'SpaceFinderPhotos', {
