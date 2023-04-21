@@ -1,4 +1,4 @@
-import { Stack, StackProps } from 'aws-cdk-lib'
+import { Duration, Stack, StackProps } from 'aws-cdk-lib'
 import { LambdaIntegration } from 'aws-cdk-lib/aws-apigateway';
 import { ITable } from 'aws-cdk-lib/aws-dynamodb';
 import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
@@ -26,7 +26,8 @@ export class LambdaStack extends Stack {
             environment: {
                 TABLE_NAME: props.spacesTable.tableName
             },
-            tracing: Tracing.ACTIVE
+            tracing: Tracing.ACTIVE,
+            timeout: Duration.minutes(5)
         });
 
         spacesLambda.addToRolePolicy(new PolicyStatement({
