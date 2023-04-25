@@ -1,5 +1,5 @@
 import { Duration, Stack, StackProps } from "aws-cdk-lib";
-import { Alarm, Metric } from "aws-cdk-lib/aws-cloudwatch";
+import { Alarm, Metric, Unit } from "aws-cdk-lib/aws-cloudwatch";
 import { SnsAction } from "aws-cdk-lib/aws-cloudwatch-actions";
 import { Runtime } from "aws-cdk-lib/aws-lambda";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
@@ -27,16 +27,23 @@ export class MonitorStack extends Stack {
 
         const apiAlarm = new Alarm(this, 'apiAlarm', {
             metric: new Metric({
-                metricName:'5XXError',
+                metricName:'4XXError',
                 namespace: 'AWS/ApiGateway',
-                period: Duration.minutes(5)
+                period: Duration.minutes(1),
+                statistic: "sum",
+                unit: Unit.COUNT,
+                dimensionsMap: {
+                    "ApiName": "SpacesApi"
+                }
             }),
             evaluationPeriods: 1,
-            threshold: 1,   
+            threshold: 5,   
             alarmName: 'SpacesApiAlarm',
-            
 
-        }).addAlarmAction(new SnsAction(alarmTopic));
+        });
+        const snsAction = new SnsAction(alarmTopic)
+        apiAlarm.addAlarmAction(snsAction);
+        apiAlarm.addOkAction(snsAction);
     }
 
 }

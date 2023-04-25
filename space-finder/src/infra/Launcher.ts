@@ -20,4 +20,5 @@ new ApiStack(app, 'ApiStack', {
     spacesLambdaIntegration: lambdaStack.spacesLambdaIntegration,
     userPool: authStack.userPool
 });
-new UiDeploymentStack(app, 'UiDeploymentStack')
+new UiDeploymentStack(app, 'UiDeploymentStack');
+new MonitorStack(app, 'MonitorStack');

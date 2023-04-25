@@ -1,9 +1,12 @@
 {
   "DataStack": {
-    "ExportsOutputFnGetAttSpaceFinderPhotosE708E252Arn354BE01C": "arn:aws:s3:::space-finder-photos-06333b7d4487",
-    "ExportsOutputRefSpacesTable8A9973559FB4B87D": "SpaceTable-06333b7d4487",
-    "SpaceFinderPhotosBucketName": "space-finder-photos-06333b7d4487",
-    "ExportsOutputFnGetAttSpacesTable8A997355Arn242927FE": "arn:aws:dynamodb:eu-west-1:151873756016:table/SpaceTable-06333b7d4487"
+    "ExportsOutputFnGetAttSpaceFinderPhotosE708E252Arn354BE01C": "arn:aws:s3:::space-finder-photos-022b5a369bdd",
+    "ExportsOutputRefSpacesTable8A9973559FB4B87D": "SpaceTable-022b5a369bdd",
+    "SpaceFinderPhotosBucketName": "space-finder-photos-022b5a369bdd",
+    "ExportsOutputFnGetAttSpacesTable8A997355Arn242927FE": "arn:aws:dynamodb:eu-west-1:151873756016:table/SpaceTable-022b5a369bdd"
+  },
+  "UiDeploymentStack": {
+    "SpaceFInderUrl": "d3mnfdc79byiej.cloudfront.net"
   },
   "AuthStack": {
     "ExportsOutputFnGetAttSpaceUserPool6AB542DCArnC2E21F85": "arn:aws:cognito-idp:eu-west-1:151873756016:userpool/eu-west-1_dzrtjSrKx",
@@ -13,9 +16,6 @@
   },
   "LambdaStack": {
     "ExportsOutputFnGetAttSpacesLambdaA5F923A4ArnE59FF2BB": "arn:aws:lambda:eu-west-1:151873756016:function:LambdaStack-SpacesLambdaA5F923A4-P02xRYqmS6NB"
-  },
-  "UiDeploymentStack": {
-    "SpaceFInderUrl": "d3mnfdc79byiej.cloudfront.net"
   },
   "ApiStack": {
     "SpacesApiEndpoint36C4F3B6": "https://avzd0sy2h0.execute-api.eu-west-1.amazonaws.com/prod/"
