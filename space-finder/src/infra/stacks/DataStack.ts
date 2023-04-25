@@ -16,10 +16,6 @@ export class DataStack extends Stack {
 
         const suffix = getSuffixFromStack(this);
 
-        this.deploymentBucket = new Bucket(this, 'SpaceFinderFrontend', {
-            bucketName: `space-finder-frontend-${suffix}`,
-            websiteIndexDocument: 'index.html'
-        })
         this.photosBucket = new Bucket(this, 'SpaceFinderPhotos', {
             bucketName: `space-finder-photos-${suffix}`,
             cors: [{
