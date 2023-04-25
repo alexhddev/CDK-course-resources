@@ -1,18 +1,21 @@
 {
   "AuthStack": {
-    "ExportsOutputFnGetAttSpaceUserPool6AB542DCArnC2E21F85": "arn:aws:cognito-idp:eu-west-1:151873756016:userpool/eu-west-1_azOXLiuLi",
-    "SpaceUserPoolId": "eu-west-1_azOXLiuLi",
-    "SpaceUserPoolClientId": "nu59r0nf8djfh9uordchjmjm4",
-    "SpaceIdentityPoolId": "eu-west-1:5b2b0567-17ce-4070-b540-3e4688c46f43"
+    "ExportsOutputFnGetAttSpaceUserPool6AB542DCArnC2E21F85": "arn:aws:cognito-idp:eu-west-1:151873756016:userpool/eu-west-1_dzrtjSrKx",
+    "SpaceUserPoolId": "eu-west-1_dzrtjSrKx",
+    "SpaceUserPoolClientId": "5a1o8t924hrt56tkt3bl102mbo",
+    "SpaceIdentityPoolId": "eu-west-1:1f218892-bd3f-4314-854e-65d8e7807bc2"
   },
   "DataStack": {
-    "ExportsOutputRefSpacesTable8A9973559FB4B87D": "SpaceTable-020fda1d7783",
-    "ExportsOutputFnGetAttSpacesTable8A997355Arn242927FE": "arn:aws:dynamodb:eu-west-1:151873756016:table/SpaceTable-020fda1d7783"
+    "ExportsOutputRefSpacesTable8A9973559FB4B87D": "SpaceTable-022b5a369bdd",
+    "ExportsOutputFnGetAttSpacesTable8A997355Arn242927FE": "arn:aws:dynamodb:eu-west-1:151873756016:table/SpaceTable-022b5a369bdd"
+  },
+  "UiDeploymentStack": {
+    "SpaceFInderUrl": "d3mnfdc79byiej.cloudfront.net"
   },
   "LambdaStack": {
-    "ExportsOutputFnGetAttSpacesLambdaA5F923A4ArnE59FF2BB": "arn:aws:lambda:eu-west-1:151873756016:function:LambdaStack-SpacesLambdaA5F923A4-mxHwBP2eQrbu"
+    "ExportsOutputFnGetAttSpacesLambdaA5F923A4ArnE59FF2BB": "arn:aws:lambda:eu-west-1:151873756016:function:LambdaStack-SpacesLambdaA5F923A4-P02xRYqmS6NB"
   },
   "ApiStack": {
-    "SpacesApiEndpoint36C4F3B6": "https://lf5tgzziad.execute-api.eu-west-1.amazonaws.com/prod/"
+    "SpacesApiEndpoint36C4F3B6": "https://avzd0sy2h0.execute-api.eu-west-1.amazonaws.com/prod/"
   }
 }
