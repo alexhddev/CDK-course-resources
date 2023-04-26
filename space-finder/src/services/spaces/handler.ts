@@ -6,13 +6,21 @@ import { updateSpace } from "./UpdateSpace";
 import { deleteSpace } from "./DeleteSpace";
 import { JsonError, MissingFieldError } from "../shared/Validator";
 import { addCorsHeader } from "../shared/Utils";
+import { captureAWSv3Client, getSegment } from 'aws-xray-sdk-core'
 
-
-const ddbClient = new DynamoDBClient({});
+const ddbClient = captureAWSv3Client(new DynamoDBClient({}))
 
 async function handler(event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> {
 
     let response: APIGatewayProxyResult;
+
+    const subSeg = getSegment().addNewSubsegment('MyLongCall')
+    await new Promise(resolve =>{ setTimeout(resolve, 3000)});
+    subSeg.close();
+
+    const subSeg2 = getSegment().addNewSubsegment('MyLongCall')
+    await new Promise(resolve =>{ setTimeout(resolve, 500)})
+    subSeg2.close();
 
     try {
         switch (event.httpMethod) {
