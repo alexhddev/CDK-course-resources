@@ -8,11 +8,11 @@ async function testAuth(){
         'barosanu',
         'sdf45aAf574fg)'
     )
-    // console.log(loginResult.getSignInUserSession().getIdToken().getJwtToken());
-    const credentials = await service.generateTemporaryCredentials(loginResult);
+    console.log(loginResult.getSignInUserSession().getIdToken().getJwtToken());
+    //const credentials = await service.generateTemporaryCredentials(loginResult);
     //console.log(credentials);
-    const buckets = await listBuckets(credentials);
-    console.log(buckets);
+    //const buckets = await listBuckets(credentials);
+    //console.log(buckets);
 }
 
 async function listBuckets(credentials: any){
