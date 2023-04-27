@@ -73,7 +73,20 @@ describe('MonitorStack test suite', () => {
 
         expect(alarmActionsCaptor.asArray()).toEqual([{
             Ref: expect.stringMatching(/^AlarmTopic/)
-        }])
+        }]);
+    });
 
+    test('MonitorStack snapshot testing - whole stack', ()=>{
+        expect(monitorStackTemplate.toJSON()).toMatchSnapshot();
+    })
+
+    test('Lambda snapshot test', ()=>{
+        const lambda = monitorStackTemplate.findResources('AWS::Lambda::Function');
+        expect(lambda).toMatchSnapshot();
+    })
+
+    test('SnsTopic snapshot test', ()=>{
+        const snsTopic = monitorStackTemplate.findResources('AWS::SNS::Topic');
+        expect(snsTopic).toMatchSnapshot();
     })
 });
