@@ -33,6 +33,7 @@
     "@aws-sdk/util-dynamodb": "^3.306.0",
     "@types/uuid": "^9.0.1",
     "aws-amplify": "^5.0.25",
+    "aws-sdk-client-mock": "^2.1.1",
     "aws-xray-sdk-core": "^3.5.0",
     "uuid": "^9.0.0"
   }
