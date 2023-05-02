@@ -2,7 +2,7 @@ import { CfnOutput, Stack, StackProps } from 'aws-cdk-lib'
 import { AttributeType, ITable, Table } from 'aws-cdk-lib/aws-dynamodb';
 import { Construct } from 'constructs';
 import { getSuffixFromStack } from '../Utils';
-import { Bucket, HttpMethods, IBucket } from 'aws-cdk-lib/aws-s3';
+import { Bucket, BucketAccessControl, HttpMethods, IBucket } from 'aws-cdk-lib/aws-s3';
 
 
 export class DataStack extends Stack {
@@ -26,7 +26,14 @@ export class DataStack extends Stack {
                 ],
                 allowedOrigins: ['*'],
                 allowedHeaders: ['*']
-            }]
+            }],
+            // accessControl: BucketAccessControl.PUBLIC_READ // currently not working,
+            blockPublicAccess: {
+                blockPublicAcls: false,
+                blockPublicPolicy: false,
+                ignorePublicAcls: false,
+                restrictPublicBuckets: false
+            }
         });
         new CfnOutput(this, 'SpaceFinderPhotosBucketName', {
             value: this.photosBucket.bucketName
