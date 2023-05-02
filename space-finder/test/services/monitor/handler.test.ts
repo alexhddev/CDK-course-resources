@@ -1,4 +1,4 @@
-import { handler } from "../../src/services/monitor/handler"
+import { handler } from "../../../src/services/monitor/handler"
 
 
 
