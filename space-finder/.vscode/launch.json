@@ -19,6 +19,20 @@
                 "AWS_REGION": "eu-west-1",
                 "TABLE_NAME": "SpaceTable-020fda1d7783"
             }
-        }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Jest Current File",
+            "program": "${workspaceFolder}/node_modules/.bin/jest",
+            "args": [
+              "--runTestsByPath",
+              "${relativeFile}",
+              "--config",
+              "jest.config.ts"
+            ],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+          }
     ]
 }
