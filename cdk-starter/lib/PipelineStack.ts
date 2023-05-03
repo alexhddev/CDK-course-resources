@@ -17,10 +17,10 @@ export class PipeLineStack extends Stack {
                     'ls',
                     'npx cdk synth'
                 ],
-                primaryOutputDirectory: 'cdk-starter/cdk.out'
+                primaryOutputDirectory: 'cdk-starter/cdk.out' 
             })
         });
-        console.log(pipeline)
+        console.log(process.cwd())
         
     }
 }
