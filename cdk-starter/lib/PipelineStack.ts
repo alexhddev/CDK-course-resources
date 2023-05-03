@@ -1,6 +1,7 @@
 import { Stack, StackProps } from "aws-cdk-lib";
 import { CodePipeline, CodePipelineSource, ShellStep } from "aws-cdk-lib/pipelines";
 import { Construct } from "constructs";
+import { readdir } from "fs";
 
 
 export class PipeLineStack extends Stack {
@@ -20,7 +21,7 @@ export class PipeLineStack extends Stack {
                 primaryOutputDirectory: 'cdk-starter/cdk.out' 
             })
         });
-        console.log(process.cwd())
+        readdir(process.cwd(), (err,filename)=>console.log(filename))
         
     }
 }
