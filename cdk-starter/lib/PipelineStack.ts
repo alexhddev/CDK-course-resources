@@ -14,8 +14,8 @@ export class PipeLineStack extends Stack {
                 commands: [
                     'cd cdk-starter',
                     'npm ci',
-                    'npx cdk synth',
-                    'ls'
+                    'ls',
+                    'npx cdk synth'
                 ],
                 primaryOutputDirectory: 'cdk-starter/cdk.out'
             })
