@@ -4,7 +4,7 @@ import * as cdk from 'aws-cdk-lib';
 import { PhotosStack } from '../lib/PhotosStack';
 import { PhotosHandlerStack } from '../lib/PhotosHandlerStack';
 import { BucketTagger } from './Tagger';
-import { PipeLineStack } from '../lib/PipeLineStack';
+import { PipeLineStack } from '../lib/PipelineStack';
 
 const app = new cdk.App();
 const photosStack = new PhotosStack(app, 'PhotosStack');
