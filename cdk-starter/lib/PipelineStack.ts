@@ -17,7 +17,7 @@ export class PipeLineStack extends Stack {
                     'npm run cdk synth',
                     'ls'
                 ],
-                primaryOutputDirectory: 'cdk-starter'
+                primaryOutputDirectory: 'cdk-starter/cdk.out'
             })
         });
         console.log(pipeline)
