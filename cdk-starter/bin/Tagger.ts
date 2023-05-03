@@ -15,7 +15,6 @@ export class BucketTagger implements IAspect {
 
 
     visit(node: IConstruct): void {
-        console.log('visiting: ' + node.node.id);
         if (node instanceof CfnBucket) {
             node.tags.setTag(this.key, this.value);
         }
