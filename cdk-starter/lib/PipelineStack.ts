@@ -12,13 +12,13 @@ export class PipeLineStack extends Stack {
             pipelineName: 'AwesomePipeline',
             synth: new ShellStep('Synth', {
                 input: CodePipelineSource.gitHub('alexhddev/CDK-course-resources', 'pipe-test'),
+                primaryOutputDirectory: 'cdk-starter/cdk.out',
                 commands: [
                     'cd cdk-starter',
                     'npm ci',
-                    'ls',
+                    'npm run build',
                     'npx cdk synth'
                 ],
-                primaryOutputDirectory: 'cdk-starter/cdk.out' 
             })
         });
         readdir(process.cwd(), (err,filename)=>console.log(filename))
