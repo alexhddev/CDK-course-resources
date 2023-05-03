@@ -24,11 +24,12 @@ export class PipeLineStack extends Stack {
         const testStage = pipeline.addStage(new PipelineStage(this, 'PipelineTestStage', {
             stageName: 'test'
         }));
-        testStage.addPre(new CodeBuildStep('test', {
+        testStage.addPre(new CodeBuildStep('unit-test', {
             commands: [
-                'npm run test'
+                'cd cdk-starter',
+                'npm ci',
+                'npm test'
             ],
-            primaryOutputDirectory: 'cdk-starter/cdk.out'
         }))
     }
 }
