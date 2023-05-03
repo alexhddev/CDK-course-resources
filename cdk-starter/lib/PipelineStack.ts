@@ -1,5 +1,5 @@
 import { Stack, StackProps } from "aws-cdk-lib";
-import { CodePipeline, CodePipelineSource, ShellStep } from "aws-cdk-lib/pipelines";
+import { CodeBuildStep, CodePipeline, CodePipelineSource, ShellStep } from "aws-cdk-lib/pipelines";
 import { Construct } from "constructs";
 import { readdir } from "fs";
 import { PipelineStage } from "./PipelineStage";
@@ -21,8 +21,14 @@ export class PipeLineStack extends Stack {
                 ],
             })
         });
-        pipeline.addStage(new PipelineStage(this, 'PipelineTestStage', {
+        const testStage = pipeline.addStage(new PipelineStage(this, 'PipelineTestStage', {
             stageName: 'test'
+        }));
+        testStage.addPre(new CodeBuildStep('test', {
+            commands: [
+                'npm run test'
+            ],
+            primaryOutputDirectory: 'cdk-starter/cdk.out'
         }))
     }
 }
