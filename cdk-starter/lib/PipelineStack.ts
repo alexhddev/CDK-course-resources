@@ -18,6 +18,7 @@ export class PipeLineStack extends Stack {
                 ],
                 primaryOutputDirectory: 'cdk-starter/cdk.out'
             })
-        })
+        });
+        
     }
 }
