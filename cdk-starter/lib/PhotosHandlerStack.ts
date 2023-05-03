@@ -17,7 +17,7 @@ export class PhotosHandlerStack extends cdk.Stack {
             handler: 'index.handler',
             code: Code.fromInline(`
             exports.handler = async (event) => {
-              console.log("hello!: " + process.env.TARGET_BUCKET)
+              console.log("hello!Updated: " + process.env.TARGET_BUCKET)
             };
           `),
             environment: {

@@ -19,8 +19,6 @@ export class PipeLineStack extends Stack {
                     'npx cdk synth'
                 ],
             })
-        });
-        readdir(process.cwd(), (err,filename)=>console.log(filename))
-        
+        });      
     }
 }
