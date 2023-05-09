@@ -1,26 +1,20 @@
 {
   "DataStack": {
-    "ExportsOutputFnGetAttSpaceFinderPhotosE708E252Arn354BE01C": "arn:aws:s3:::space-finder-photos-020fda1d7783",
-    "ExportsOutputRefSpaceFinderFrontend8E9921E539ACA1C2": "space-finder-frontend-020fda1d7783",
-    "ExportsOutputFnGetAttSpaceFinderFrontend8E9921E5WebsiteURL02C17629": "http://space-finder-frontend-020fda1d7783.s3-website-eu-west-1.amazonaws.com",
-    "ExportsOutputRefSpacesTable8A9973559FB4B87D": "SpaceTable-020fda1d7783",
-    "SpaceFinderPhotosBucketName": "space-finder-photos-020fda1d7783",
-    "ExportsOutputFnGetAttSpacesTable8A997355Arn242927FE": "arn:aws:dynamodb:eu-west-1:151873756016:table/SpaceTable-020fda1d7783",
-    "ExportsOutputFnGetAttSpaceFinderFrontend8E9921E5ArnA5AA9F6B": "arn:aws:s3:::space-finder-frontend-020fda1d7783"
+    "ExportsOutputFnGetAttSpaceFinderPhotosE708E252Arn354BE01C": "arn:aws:s3:::space-finder-photos-0accfac9e685",
+    "ExportsOutputRefSpacesTable8A9973559FB4B87D": "SpaceTable-0accfac9e685",
+    "SpaceFinderPhotosBucketName": "space-finder-photos-0accfac9e685",
+    "ExportsOutputFnGetAttSpacesTable8A997355Arn242927FE": "arn:aws:dynamodb:eu-west-1:151873756016:table/SpaceTable-0accfac9e685"
   },
   "AuthStack": {
-    "ExportsOutputFnGetAttSpaceUserPool6AB542DCArnC2E21F85": "arn:aws:cognito-idp:eu-west-1:151873756016:userpool/eu-west-1_dzrtjSrKx",
-    "SpaceUserPoolId": "eu-west-1_dzrtjSrKx",
-    "SpaceUserPoolClientId": "5a1o8t924hrt56tkt3bl102mbo",
-    "SpaceIdentityPoolId": "eu-west-1:1f218892-bd3f-4314-854e-65d8e7807bc2"
+    "ExportsOutputFnGetAttSpaceUserPool6AB542DCArnC2E21F85": "arn:aws:cognito-idp:eu-west-1:151873756016:userpool/eu-west-1_FuH3QAny0",
+    "SpaceUserPoolId": "eu-west-1_FuH3QAny0",
+    "SpaceUserPoolClientId": "rkmord33d66v2p5t9ljjsgss3",
+    "SpaceIdentityPoolId": "eu-west-1:04237ada-cfac-4735-b731-d06352ffeb0b"
   },
   "LambdaStack": {
-    "ExportsOutputFnGetAttSpacesLambdaA5F923A4ArnE59FF2BB": "arn:aws:lambda:eu-west-1:151873756016:function:LambdaStack-SpacesLambdaA5F923A4-P02xRYqmS6NB"
-  },
-  "UiDeploymentStack": {
-    "SpaceFInderUrl": "d3mnfdc79byiej.cloudfront.net"
+    "ExportsOutputFnGetAttSpacesLambdaA5F923A4ArnE59FF2BB": "arn:aws:lambda:eu-west-1:151873756016:function:LambdaStack-SpacesLambdaA5F923A4-hT8FnkfHQdIm"
   },
   "ApiStack": {
-    "SpacesApiEndpoint36C4F3B6": "https://avzd0sy2h0.execute-api.eu-west-1.amazonaws.com/prod/"
+    "SpacesApiEndpoint36C4F3B6": "https://u7kabonym5.execute-api.eu-west-1.amazonaws.com/prod/"
   }
 }
