@@ -120,7 +120,14 @@ export class AuthStack extends Stack {
                 's3:PutObjectAcl'
             ],
             resources: [photosBucket.bucketArn + '/*']
-        }))
+        }));
+        this.adminRole.addToPolicy(new PolicyStatement({
+            effect: Effect.ALLOW,
+            actions: [
+                's3:ListAllMyBuckets'
+            ],
+            resources: ['*']
+        }));
     }
 
     private attachRoles(){

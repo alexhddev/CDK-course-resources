@@ -6,13 +6,12 @@ async function testAuth(){
     const service = new AuthService();
     const loginResult = await service.login(
         'barosanu',
-        'sdf45aAf574fg)'
+        'Isdufhie354$'
     )
-    console.log(loginResult.getSignInUserSession().getIdToken().getJwtToken());
-    //const credentials = await service.generateTemporaryCredentials(loginResult);
-    //console.log(credentials);
-    //const buckets = await listBuckets(credentials);
-    //console.log(buckets);
+    const credentials = await service.generateTemporaryCredentials();
+    const buckets = await listBuckets(credentials);
+    const a = 4;
+
 }
 
 async function listBuckets(credentials: any){
