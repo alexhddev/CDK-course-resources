@@ -1,5 +1,5 @@
-import { type CognitoUser } from '@aws-amplify/auth';
-import { Amplify, Auth } from 'aws-amplify';
+ import { SignInOutput, fetchAuthSession, signIn } from '@aws-amplify/auth';
+import { Amplify } from 'aws-amplify';
 import { AuthStack } from '../../../space-finder/outputs.json';
 import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
 import { fromCognitoIdentityPool } from '@aws-sdk/credential-providers';
@@ -8,18 +8,17 @@ const awsRegion = 'eu-west-1';
 
 Amplify.configure({
     Auth: {
-        mandatorySignIn: false,
-        region: awsRegion,
+      Cognito: {
         userPoolId: AuthStack.SpaceUserPoolId,
-        userPoolWebClientId: AuthStack.SpaceUserPoolClientId,
-        identityPoolId: AuthStack.SpaceIdentityPoolId,
-        authenticationFlowType: 'USER_PASSWORD_AUTH'
-    }
-})
+        userPoolClientId: AuthStack.SpaceUserPoolClientId,
+        identityPoolId: AuthStack.SpaceIdentityPoolId,        
+      },
+    },
+  });
 
 export class AuthService {
 
-    private user: CognitoUser | undefined;
+    private user: SignInOutput | undefined;
     public jwtToken: string | undefined;
     private temporaryCredentials: object | undefined;
 
@@ -33,9 +32,15 @@ export class AuthService {
 
     public async login(userName: string, password: string): Promise<Object | undefined> {
         try {
-            this.user = await Auth.signIn(userName, password) as CognitoUser;
-            this.jwtToken = this.user?.getSignInUserSession()?.getIdToken().getJwtToken();
-            return this.user;
+            const signInOutput: SignInOutput = await signIn({
+                username: userName,
+                password: password,
+                options: {
+                    authFlowType: 'USER_PASSWORD_AUTH'
+                }
+            });
+            this.user = signInOutput;
+            return signInOutput;
         } catch (error) {
             console.error(error);
             return undefined
@@ -51,7 +56,7 @@ export class AuthService {
     }
 
     public getUserName() {
-        return this.user?.getUsername();
+        return this.user?.
     }
 
     private async generateTemporaryCredentials() {
