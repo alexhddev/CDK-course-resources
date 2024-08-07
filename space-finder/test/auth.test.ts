@@ -8,6 +8,9 @@ async function testAuth() {
         'Isdufhie354$'
     );
     const idToken = await service.getIdToken();
+    // console.log(idToken);
+    const credentials = await service.generateTemporaryCredentials();
+    const a = 5;
     
 }
 
