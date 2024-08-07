@@ -10,21 +10,21 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.114",
-    "@types/node": "^18.15.10",
-    "aws-cdk": "^2.70.0",
-    "aws-cdk-lib": "^2.70.0",
-    "constructs": "^10.1.293",
-    "esbuild": "^0.17.14",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.0.2"
+    "@types/aws-lambda": "^8.10.142",
+    "@types/node": "^22.1.0",
+    "aws-cdk": "^2.151.0",
+    "aws-cdk-lib": "^2.151.0",
+    "constructs": "^10.3.0",
+    "esbuild": "^0.23.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.303.0",
-    "@aws-sdk/client-s3": "^3.301.0",
-    "@aws-sdk/lib-dynamodb": "^3.306.0",
-    "@aws-sdk/util-dynamodb": "^3.306.0",
-    "@types/uuid": "^9.0.1",
-    "uuid": "^9.0.0"
+    "@aws-sdk/client-dynamodb": "^3.624.0",
+    "@aws-sdk/client-s3": "^3.624.0",
+    "@aws-sdk/lib-dynamodb": "^3.624.0",
+    "@aws-sdk/util-dynamodb": "^3.624.0",
+    "@types/uuid": "^10.0.0",
+    "uuid": "^10.0.0"
   }
 }
