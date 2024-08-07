@@ -21,6 +21,7 @@ export class AuthService {
     private user: SignInOutput | undefined;
     public jwtToken: string | undefined;
     private temporaryCredentials: object | undefined;
+    private userName: string ='';
 
     public isAuthorized(){
         if (this.user) {
@@ -28,6 +29,16 @@ export class AuthService {
         }
         return false;
     }
+
+    /**
+     * call only after login
+     */
+    public async getIdToken(){
+        const authSession = await fetchAuthSession();
+        return authSession.tokens?.idToken?.toString();
+    }
+
+
 
 
     public async login(userName: string, password: string): Promise<Object | undefined> {
@@ -40,6 +51,8 @@ export class AuthService {
                 }
             });
             this.user = signInOutput;
+            this.userName = userName;
+            this.jwtToken = await this.getIdToken();
             return signInOutput;
         } catch (error) {
             console.error(error);
@@ -55,8 +68,8 @@ export class AuthService {
         return this.temporaryCredentials;
     }
 
-    public getUserName() {
-        return this.user?.
+    public getUserName(){
+        return this.userName;
     }
 
     private async generateTemporaryCredentials() {
