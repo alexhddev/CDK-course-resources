@@ -15,13 +15,6 @@ export class DataStack extends Stack {
 
         const suffix = getSuffixFromStack(this);
 
-        this.deploymentBucket = new Bucket(this, 'SpaceFinderFrontend', {
-            bucketName: `space-finder-frontend-${suffix}`,
-            publicReadAccess: true,
-            websiteIndexDocument: 'index.html'
-        })
-
-
         this.spacesTable = new Table(this, 'SpacesTable', {
             partitionKey : {
                 name: 'id',

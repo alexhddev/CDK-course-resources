@@ -18,5 +18,4 @@ new ApiStack(app, 'ApiStack', {
     userPool: authStack.userPool
 });
 new UiDeploymentStack(app, 'UiDeploymentStack', {
-    deploymentBucket: dataStack.deploymentBucket
 })
