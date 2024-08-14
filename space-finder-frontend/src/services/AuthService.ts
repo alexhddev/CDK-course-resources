@@ -1,4 +1,4 @@
- import { SignInOutput, fetchAuthSession, signIn } from '@aws-amplify/auth';
+ import { SignInOutput, fetchAuthSession, signIn, getCurrentUser, AuthUser } from '@aws-amplify/auth';
 import { Amplify } from 'aws-amplify';
 import { AuthStack } from '../../../space-finder/outputs.json';
 import { CognitoIdentityClient } from '@aws-sdk/client-cognito-identity';
@@ -18,7 +18,7 @@ Amplify.configure({
 
 export class AuthService {
 
-    private user: SignInOutput | undefined;
+    private user: SignInOutput | AuthUser |undefined;
     public jwtToken: string | undefined;
     private temporaryCredentials: object | undefined;
     private userName: string ='';
@@ -43,20 +43,38 @@ export class AuthService {
 
     public async login(userName: string, password: string): Promise<Object | undefined> {
         try {
-            const signInOutput: SignInOutput = await signIn({
-                username: userName,
-                password: password,
-                options: {
-                    authFlowType: 'USER_PASSWORD_AUTH'
-                }
-            });
-            this.user = signInOutput;
+            // check if user is already logged in
+            const user = await this.getCurrentUser();
+            if (user) {
+                this.user = user;
+            } else { 
+                const signInOutput: SignInOutput = await signIn({
+                    username: userName,
+                    password: password,
+                    options: {
+                        authFlowType: 'USER_PASSWORD_AUTH'
+                    }
+                });
+                this.user = signInOutput;
+            }
+
             this.userName = userName;
             this.jwtToken = await this.getIdToken();
-            return signInOutput;
+
+            console.log(this.jwtToken)
+            return this.user;
         } catch (error) {
             console.error(error);
             return undefined
+        }
+    }
+
+    private async getCurrentUser(){
+        try {
+            const user = await getCurrentUser();
+            return user;
+        } catch (error) {
+            return undefined;
         }
     }
 
