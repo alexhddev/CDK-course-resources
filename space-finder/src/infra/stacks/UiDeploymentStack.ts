@@ -5,8 +5,8 @@ import { getSuffixFromStack } from "../Utils";
 import { join } from "path";
 import { existsSync } from "fs";
 import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
-import { Distribution, OriginAccessIdentity } from "aws-cdk-lib/aws-cloudfront";
-import { S3Origin } from "aws-cdk-lib/aws-cloudfront-origins";
+import { AccessLevel, Distribution } from "aws-cdk-lib/aws-cloudfront";
+import { S3BucketOrigin, S3Origin } from "aws-cdk-lib/aws-cloudfront-origins";
 
 
 export class UiDeploymentStack extends Stack {
@@ -31,15 +31,14 @@ export class UiDeploymentStack extends Stack {
             sources: [Source.asset(uiDir)]
         });
 
-        const originIdentity = new OriginAccessIdentity(this, 'OriginAccessIdentity');
-        deploymentBucket.grantRead(originIdentity);
+        const s3Origin = S3BucketOrigin.withOriginAccessControl(deploymentBucket, {
+            originAccessLevels: [AccessLevel.READ],
+        });
 
         const distribution = new Distribution(this, 'SpacesFinderDistribution', {
             defaultRootObject: 'index.html',
             defaultBehavior: {
-                origin: new S3Origin(deploymentBucket, {
-                    originAccessIdentity: originIdentity
-                })
+                origin: s3Origin
             }
         });
 
