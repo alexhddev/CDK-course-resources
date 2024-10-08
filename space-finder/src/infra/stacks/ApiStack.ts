@@ -20,13 +20,10 @@ export class ApiStack extends Stack {
             cognitoUserPools:[props.userPool],
             identitySource: 'method.request.header.Authorization'
         });
-        authorizer._attachToApi(api);
 
         const optionsWithAuth: MethodOptions = {
             authorizationType: AuthorizationType.COGNITO,
-            authorizer: {
-                authorizerId: authorizer.authorizerId
-            }
+            authorizer: authorizer // updated, _attachToApi no longer required
         }
 
         const optionsWithCors: ResourceOptions = {
